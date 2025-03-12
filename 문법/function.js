@@ -10,13 +10,13 @@ function 문자출력함수(문자) {
 };
 문자출력익명함수('swag');
 
-// arrow function
+// arrow function1
 문자출력익명함수 = (문자) => {
     console.log('문자출력익명함수 ' + 문자);
 };
 문자출력익명함수('swag');
 
-// arrow function - 매개변수가 하나인 경우 소괄호()를 생략할 수 있다.
+// arrow function2 - 매개변수가 하나인 경우 소괄호()를 생략할 수 있다.
 문자출력익명함수 = 문자 => {
     console.log('문자출력익명함수 ' + 문자);
 };
