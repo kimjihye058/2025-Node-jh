@@ -4,8 +4,10 @@ const express = require('express');
 // Express 애플리케이션을 생성합니다.
 const app = express();
 
+app.use(express.json());
+
 // 기본 라우트 설정
-app.get('/', (req, res) => {
+app.post('/swag', (req, res) => {
     // 클라이언트에게 응답 내용 전송
     res.send('Hello, Node.js!');
 });
