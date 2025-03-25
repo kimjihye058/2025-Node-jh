@@ -2,7 +2,6 @@
   "name": "2025node",
   "version": "1.0.0",
   "description": "지우쌤과 함께하는 즐거운 Node 응(용)개(발)시간~",
-  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +16,7 @@
   },
   "homepage": "https://github.com/kimjihye058/2025-Node-jh#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.2"
   }
 }
