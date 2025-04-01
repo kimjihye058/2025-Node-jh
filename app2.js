@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
+const { render } = require('ejs');
 
 dotenv.config();
 const app = express();      // 객체 생성
@@ -10,9 +11,6 @@ app.set('view engine', 'ejs');
 // __dirname : 현재 디렉토리의 절대경로
 // path.join : 경로지정자(/ 나 \)를 운영체제에 맞추어 줌
 app.set('views', path.join(__dirname, 'views'));
-
-// 여행지 목록 데이터
-const travelList = ['뉴옥', '빠리', '우리집', '도쿄'];
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -34,7 +32,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/travel', (req, res) => {
-  res.render('travel', {travelList});
+  const _query = 'SELECT id, name FROM travellist';
+  db.query(_query, (err, results)=>{
+    if(err) {
+      console.error('데이터베이스 쿼리 실패:', err);
+      res.status(500).send ('Internal Server Error');
+      return;
+    }
+    const travelList = results;
+    res.render('travel', {travelList});
+  });
 });
 
 app.use((req, res) => {
