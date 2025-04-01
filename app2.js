@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
+const dotenv = require('dotenv');
 
+dotenv.config();
 const app = express();      // 객체 생성
 
 app.set('view engine', 'ejs');
@@ -13,10 +15,10 @@ app.set('views', path.join(__dirname, 'views'));
 const travelList = ['뉴옥', '빠리', '우리집', '도쿄'];
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'mirim1',
-  database: 'traveldb'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 db.connect((err)=>{
