@@ -10,6 +10,10 @@
         <% travelList.forEach(travel => { %>
             <li>
                 <a href="/travel/<%= travel.id %>"><%= travel.name %></a>
+                <a href="/travel/<%= travel.id %>/edit">수정</a>
+                <!-- <from action="/travel/<%= travel.id %>" method="DELETE">
+                    <button type="submit"></button>
+                </from> -->
             </li>
         <% }) %>
     </ul>
