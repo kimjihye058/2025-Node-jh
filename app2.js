@@ -128,7 +128,10 @@ app.delete('/travel/:id', (req, res) => {
   });
 });
 
+// use(전체 method에 대해) + 모든 경로
+// 위에 앤드포인트에 해당하지 않으면 유효하지 않는 페이지로 간주
 app.use((req, res) => {
+  res.status(404).send('404 not Found');
 });
 
 app.listen(3001, () => {
