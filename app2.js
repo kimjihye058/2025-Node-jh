@@ -115,6 +115,19 @@ app.get('/travel/:id/edit', (req, res) => {
   });
 });
 
+app.delete('/travel/:id', (req, res) => {
+  const travelId = req.params.id;
+  const _query = 'DELETE FROM travellist WHERE id=?';
+  db.query(_query, [travelId], (err, results) => {
+    if(err) {
+      console.error('데이터베이스 쿼리 실패: ', err);
+      res.status(500).send('DB 서버 에러');
+      return;
+    }
+    res.render('deleteSuccess')
+  });
+});
+
 app.use((req, res) => {
 });
 
