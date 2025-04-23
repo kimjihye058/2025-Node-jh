@@ -1,7 +1,6 @@
-const express = require("express");
-const db = require("../models/Travel");
+// const db = require("../models/Travel");
 const Travel = require("../models/Travel");
-
+const express = require("express");
 const router = express.Router();
 
 // 게시글 전체 목록을 보여줌

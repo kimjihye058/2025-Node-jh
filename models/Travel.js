@@ -1,16 +1,16 @@
-const { DataTypees } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("./index");
 
 const Travel = sequelize.define(
   "Travel",
   {
     id: {
-      type: DataTypees.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     name: {
-      type: DataTypees.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
